@@ -6,11 +6,13 @@
 
 unset -f save_tBefore save_tAfter since_tThen readSavedFractionalSeconds
 
-save_tBefore() { echo -n "${EPOCHREALTIME}" > /tmp/.cmd-tstampThen-$$ ;}
+# EPOCHREALTIME is fractional Epoch seconds, "1744043648.988914" for example.  The first
+# 10 chars (index 0 through 9) give the seconds, and micros is chars at index 11 and onward.
+save_tBefore() { builtin echo -n ${EPOCHREALTIME} > /tmp/.cmd-tstampThen-$$ ;}
 #
 export PS0='$(save_tBefore)'
 
-save_tAfter() { echo -n "${EPOCHREALTIME}" > /tmp/.cmd-tstampNow-$$ ;}
+save_tAfter() { builtin echo -n ${EPOCHREALTIME} > /tmp/.cmd-tstampNow-$$ ;}
 #
 export PROMPT_COMMAND='save_tAfter'
 
@@ -19,18 +21,17 @@ since_tThen() {
 		local -r srcFile=$1
 		declare -n refOut_sec=$2 refOut_micros=$3
 		local tstamp=''
-		{	read tstamp < $srcFile	;}  2>/dev/null
+		{	read tstamp < $srcFile   ;} 2>/dev/null
 		rm -f $srcFile
 		[ -z "$tstamp" ] && return
-		local -ra tokens=( ${tstamp/./ } )
-		# If tokens[1] starts with 0, Bash treats it as a base-8 number; if tokens[1] is say
+		# If micros starts with 0, Bash treats it as a base-8 number; if micros is say
 		# 000093, then an illegal base-8 number!  So we tell Bash to treat it as a base-10.
-		refOut_sec=${tokens[0]} refOut_micros=10#${tokens[1]}
+		refOut_sec=${tstamp:0:10} refOut_micros=10#${tstamp:11}
 	}
-	local -i secThen=-2 microsThen=-2 secNow=-1 microsNow=-1
+	local -i secThen=-3 microsThen secNow=-3 microsNow
 	readSavedFractionalSeconds /tmp/.cmd-tstampThen-$$ secThen microsThen
 	readSavedFractionalSeconds /tmp/.cmd-tstampNow-$$ secNow microsNow
-	if [ $secThen -ge $secNow ]; then
+	if [[ $secThen -gt 0 && $secNow -gt 0 ]]; then
 		local -i secDelta=0 microsDelta=0
 		if [ $secNow -eq $secThen ]; then
 			microsDelta=$[microsNow-microsThen]
@@ -42,11 +43,7 @@ since_tThen() {
 				secDelta+=1
 			fi
 		fi
-		if [ $[secDelta+microsDelta] -gt 0 ]; then
-			printf "%$[COLUMNS-15]s %u.%06u" 'Ela' ${secDelta} ${microsDelta}
-		else
-			printf '?' # A logic or arithmetic bug.
-		fi
+		printf "%$[COLUMNS-15]s %u.%06u" 'Ela' ${secDelta} ${microsDelta}
 	fi # If prints nothing, most likely is because had failed to read both saved tstamps.
 }
 #
@@ -54,3 +51,13 @@ elaPrinter='\[\e[35;3;2m\]$(since_tThen)\[\e[0m\]\n'
 #
 export PS1="${elaPrinter}${PS1}"
 unset elaPrinter
+
+
+# Ideas to maybe cut overhead further:
+	#	Put the echo commands directly into PS0 and PROMPT_COMMAND, to lose overhead of func lookup and call.
+	#	Re-impl as dynamic lib, have Bash load that as a plugin on startup.  (A rather heavyweight approach.)
+	#	Def readSavedFractionalSeconds() separately, instead of nesting it within since_tThen().
+	#	Foreach func, export -fn funcName --- forego exporting to subshells.
+	#	Foreach func, declare -t funcName --- do not inherit DEBUG or TRACE traps if any set.
+	#	Unroll readSavedFractionalSeconds().
+	#	Disable various fancypants Bash features (HISTTIMEFORMAT, PROMPT_DIRTRIM, globstar, extglob, blink-matching-paren, show-all-if-ambiguous, etc etc etc); what, did you think those were free??

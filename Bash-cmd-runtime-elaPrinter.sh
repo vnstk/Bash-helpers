@@ -17,7 +17,7 @@ save_tAfter() { builtin echo -n ${EPOCHREALTIME} > /tmp/.cmd-tstampNow-$$ ;}
 export PROMPT_COMMAND='save_tAfter'
 
 since_tThen() {
-	local -ri savedExitCode=$?
+	local -r savedExitStatuses=${PIPESTATUS[*]}
 	readSavedFractionalSeconds() {
 		local -r srcFile=$1
 		declare -n refOut_sec=$2 refOut_micros=$3
@@ -45,7 +45,7 @@ since_tThen() {
 			fi
 		fi
 		local remark
-		printf -v remark "/%d/   Ela %u.%06u" ${savedExitCode} ${secDelta} ${microsDelta}
+		printf -v remark "|%s|   Ela %u.%06u" "${savedExitStatuses}" ${secDelta} ${microsDelta}
 		printf "%${COLUMNS}s" "${remark}"
 	fi # If prints nothing, most likely is because had failed to read both saved tstamps.
 }

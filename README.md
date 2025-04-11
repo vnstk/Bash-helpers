@@ -1,7 +1,7 @@
 
 <ul>
   
-<li><tt>Bash-cmd-runtime-elaPrinter.sh</tt> &#8212; Prints command elapsed time (<i>not</i> time since previous prompt had been displayed!), in seconds with microsecond precision, right-justified.&nbsp;&nbsp;Requires Bash 5.0 or newer.&nbsp;&nbsp;Uses tempfiles for storage; this doubtless increases overhead, but env vars are apparently inaccessible during <tt>PS0</tt> and <tt>PS1</tt> eval.&nbsp;&nbsp;And since we're already taking up console real estate, why not also print <tt>PIPESTATUS</tt>.
+<li><tt>Bash-cmd-runtime-elaPrinter.sh</tt> , tested with Bash 5.1.16 &#8212; Prints command elapsed time (<i>not</i> time since previous prompt had been displayed!), in seconds with microsecond precision, right-justified.&nbsp;&nbsp;Requires Bash 5.0 or newer.&nbsp;&nbsp;Uses tempfiles for storage; this doubtless increases overhead, but env vars are apparently inaccessible during <tt>PS0</tt> and <tt>PS1</tt> eval.&nbsp;&nbsp;And since we're already taking up console real estate, why not also print <tt>PIPESTATUS</tt>.
 <quote>Example:
   
 ![elaPrinter-demo](https://github.com/user-attachments/assets/940b74ce-b1f7-4070-8dea-04d62e0c0264)

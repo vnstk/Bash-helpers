@@ -1,1 +1,1 @@
-A function
+kind: a function

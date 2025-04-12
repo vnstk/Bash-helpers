@@ -8,7 +8,7 @@ unset -f save_tBefore save_tAfter since_tThen readSavedFractionalSeconds
 
 # EPOCHREALTIME is fractional Epoch seconds, "1744043648.988914" for example.  The first
 # 10 chars (index 0 through 9) give the seconds, and micros is chars at index 11 and onward.
-save_tBefore() { rm -f /tmp/.cmd-tstamp*-$$ ; builtin echo -n ${EPOCHREALTIME} > /tmp/.cmd-tstampThen-$$ ;}
+save_tBefore() { builtin echo -n ${EPOCHREALTIME} > /tmp/.cmd-tstampThen-$$ ;}
 #
 export PS0='$(save_tBefore)'
 
@@ -28,11 +28,9 @@ since_tThen() {
 		# If micros starts with 0, Bash treats it as a base-8 number; if micros is say
 		# 000093, then an illegal base-8 number!  So we tell Bash to treat it as a base-10.
 		refOut_sec=${tstamp:0:10} refOut_micros=10#${tstamp:11}
-echo "    srcFile[$srcFile] refOut_sec[$refOut_sec] refOut_micros[$refOut_micros]" >&2
 	}
 	local -i secThen=-3 microsThen secNow=-3 microsNow
 	readSavedFractionalSeconds /tmp/.cmd-tstampThen-$$ secThen microsThen
-echo "secThen[$secThen] microsThen[$microsThen]" >&2
 	readSavedFractionalSeconds /tmp/.cmd-tstampNow-$$ secNow microsNow
 	if [[ $secThen -gt 0 && $secNow -gt 0 ]]; then
 		local -i secDelta=0 microsDelta=0
@@ -48,15 +46,14 @@ echo "secThen[$secThen] microsThen[$microsThen]" >&2
 		fi
 		local remark
 		printf -v remark "|%s|   Ela %u.%06u" "${savedExitStatuses}" ${secDelta} ${microsDelta}
-echo "secDelta[$secDelta] microsDelta[$microsDelta] remark[$remark]" >&2
 		printf "%${COLUMNS}s" "${remark}"
 	fi # If prints nothing, most likely is because had failed to read both saved tstamps.
 }
 #
 elaPrinter='\[\e[35;3;2m\]$(since_tThen)\[\e[0m\]\n'
 #
-#export PS1="${elaPrinter}${PS1}"
-#unset elaPrinter
+export PS1="${elaPrinter}${PS1}"
+unset elaPrinter
 
 
 # Ideas to maybe cut overhead further:

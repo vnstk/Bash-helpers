@@ -81,12 +81,12 @@ summarize-dir () {
 				printf "%5d of %s\n" $currCt $ext
 			else
 				mtime=${ext_to_earliestMtime[$ext]}
-				printf -v outpFragm_earliest "\e[32m%s\e[0m \e[33;3m%s\e[0m" "${ext_to_earliestName[$ext]}" "`prettyAgo $[EPOCHSECONDS-mtime]`"
+				printf -v outpFragm_earliest "\e[32m%q\e[0m \e[33;3m%s\e[0m" "${ext_to_earliestName[$ext]}" "`prettyAgo $[EPOCHSECONDS-mtime]`"
 				if [ 1 -eq $currCt ]; then
-					printf -v outpFragm_latest "\e[32;3mN/A\e[0m"
+					outpFragm_latest=''
 				else
 					mtime=${ext_to_latestMtime[$ext]}
-					printf -v outpFragm_latest "\e[33;3m%s\e[0m \e[32m%s\e[0m " "`prettyAgo $[EPOCHSECONDS-mtime]`" "${ext_to_latestName[$ext]}"
+					printf -v outpFragm_latest "\e[33;3m%s\e[0m \e[32m%q\e[0m " "`prettyAgo $[EPOCHSECONDS-mtime]`" "${ext_to_latestName[$ext]}"
 				fi
 				printf "%5d \e[2mof\e[0m \e[1m%-"${extLenMax}"s\e[0m %s <--> %s\n" $currCt $ext "$outpFragm_earliest" "$outpFragm_latest"
 			fi

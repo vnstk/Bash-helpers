@@ -6,6 +6,6 @@ Report lines are sorted by count descending.
 
 If invoked with the extra argument <b>&ndash;</b>, for each extension also reports the name and relative age of the oldest representative; and same for newest representative.
 
-Ought to handle file names with internal spaces and all that.  (Not tested yet.)
+Handle file names with internal spaces, internal newlines, internal DEL bytes, etc.
 
 If you commonly name your directories <b>&ndash;</b>, this will not work out too well.

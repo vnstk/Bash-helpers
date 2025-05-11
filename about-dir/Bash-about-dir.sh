@@ -3,7 +3,6 @@
 
 # Typical `find ...... -printf '%Y %T@ %f\n'` output is
 #                                                           f 1746842745.8921564720 queryTransforms.h
-# ; the tenths-of-nanosecond precision is spurious.
 #
 # Output of `printf "%(%b%d|%T.%02S)T\n" 1746842745` is
 #                                                           May09|22:05:45.45
@@ -11,7 +10,7 @@ about-dir () {
 	local -ri secPerDay=$[24*60*60]
 	local prettyAgo
 	compose_prettyAgo () {
-		local -i n=$1
+		local -ri n=$1
 		local -ri days=$[n / secPerDay]
 		local -ri hrs=$[(n % secPerDay) / 3600]
 		local -ri mins=$[(n % 3600) / 60]
@@ -25,10 +24,10 @@ about-dir () {
 		prettyAgo+=' ago'
 	}
 	if [ $# -le 3 ] && [ $# -ge 2 ] && [[ $1 =~ [1-9][0-9]* ]]; then
-		local -ri maxdepth=$1
+		local -ri maxDepth=$1
 		shift
 	else
-		local -ri maxdepth=1
+		local -ri maxDepth=1
 	fi
 	if [ $# -eq 2 ] && [ "$1" == '-' ]; then
 		local -r bare=false
@@ -37,7 +36,7 @@ about-dir () {
 		local -r bare=true
 	fi
 	if [ $# -ne 1 ]; then
-		echo "USAGE:  [<maxdepth>,=1]  [-]  <focusDir>" >&2 && return
+		echo "USAGE:  [<maxDepth>,=1]  [-]  <focusDir>" >&2 && return
 	fi
 	local -r focusDir=$1
 	local typeCode maybeQuotedBasename unquotedBasename ext oldCt outpFragm_earliest outpFragm_latest
@@ -82,7 +81,7 @@ about-dir () {
 				fi
 			}
 		fi
-	done < <(find $focusDir -mindepth 1 -maxdepth $maxdepth -printf '%Y %T@ %P\0')
+	done < <(find $focusDir -mindepth 1 -maxdepth $maxDepth -printf '%Y %T@ %P\0')
 	shopt $extglob_savedPosition extglob
 	[ ${#ext_to_count[@]} -gt 0 ] && {
 		for ext in ${!ext_to_count[@]}; do

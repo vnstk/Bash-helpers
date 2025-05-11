@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+# Vainstein K 2025may11
+
+width=20
+for s in \
+	'xxxx' \
+	'aaaa/xxxx' \
+	'.xxxx' \
+	'xxxx.yy' \
+	'xxxx.log.3' \
+	'xx-release-3.5.log' \
+	'aaaa/bbbb.cc' \
+	'.aaaa/bbbb.cc' \
+	'aaa.log.3/bbbb.cc' \
+	'.aaaa/bbbb' \
+	'init.d/bbbb' \
+	'.aaaa/.bbbb' \
+	'aaaa/.bbbb' \
+	'aaaa/bbbb.log.3' \
+; do
+	printf -v alt1 "\e[32m%s\e[0m" "${s##*.}"
+
+	printf -v alt2 "\e[33m%s\e[0m" "${s//*./}"
+
+	shopt -p extglob >/dev/null && savedPosition='-s' || savedPosition='-u'
+	shopt -s extglob
+	printf -v alt3 "\e[35m%s\e[0m" "${s/?(*\/|*.)/}"
+	shopt $savedPosition extglob	
+
+	printf "\e[1m%${width}s\e[0m  --->  %${width}s  %${width}s  %${width}s\n" "$s" "$alt1" "$alt2" "$alt3"
+done

@@ -1,11 +1,11 @@
-
-TODO --- edit
-
-kind: a function
+kind: functions, startup script logic
 <hr/>
-Trims leading spaces as result from e.g. <tt>uniq -c</tt>.&nbsp;&nbsp;Use as
-<tt>
-find * -xdev \( \( -type d \( $findDirPruneNamesCond -o -name libs -o -name _deps \) -prune \) -o -type f \) -regex '.*\.hpp' -printf '%h\n' | sort | uniq -c | cram-columns 3
-</tt>
-<br/>
-The numeric argument is # of columns desired; this, and separatorWidth (hardcoded as 2) are scrupulously respected.&nbsp;&nbsp;Best possible use is made of available space.
+Given path of a file along with line numbe and maybe also column, all as a colon-separated string &emdash; such as compilers are wont to emit &emdash; open said file at the proper line and with cursor at the proper column.
+
+All you need do is copy the whole thing, and paste it after typed <tt>vi</tt> (or <tt>vir</tt> or <tt>gvir</tt> or ...., as case might be).
+
+<hr/>
+Example:<br/>
+
+![vir-demo-A](https://github.com/user-attachments/assets/b080ad73-aac1-4d83-b28b-0477280b9aeb)
+

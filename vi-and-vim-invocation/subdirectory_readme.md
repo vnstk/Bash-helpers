@@ -1,8 +1,8 @@
 kind: functions, startup script logic
 <hr/>
-Given path of a file along with line numbe and maybe also column, all as a colon-separated string &emdash; such as compilers are wont to emit &emdash; open said file at the proper line and with cursor at the proper column.
-
-All you need do is copy the whole thing, and paste it after typed <tt>vi</tt> (or <tt>vir</tt> or <tt>gvir</tt> or ...., as case might be).
+Given path of a file along with line numbe and maybe also column, all as a colon-separated string &#8212; such as compilers are wont to emit &#8212; these functions will open said file at the proper line and with cursor at the proper column.
+<br/><br/>
+All you need do is copy the whole thing, and paste it after typed <tt>vi</tt> (or <tt>vir</tt> or <tt>gvir</tt> or <tt>virreally</tt> or .....).
 
 <hr/>
 Example:<br/>

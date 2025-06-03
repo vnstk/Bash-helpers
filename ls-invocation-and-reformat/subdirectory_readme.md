@@ -1,5 +1,7 @@
 kind: functions, aliases
 <hr/>
+
+
 <h2>All:</h2>
 <ul>
   <li>Ensure <tt>ls</tt> colorizes it output; if output isn't going to a terminal, then have <tt>ls</tt> at least append a distinguishing character to names (e.g. <tt>/</tt> after dir names)</li>
@@ -8,6 +10,10 @@ kind: functions, aliases
   <li>Tstamps are printed either coarse-grain style (e.g. <tt>[25-Jun03] 11:49</tt>) or fine-grain style (e.g. <tt>[25-Jun03] 11:49:23.578603</tt>)</li>
   <li>When sorting by name, group directory entries first.  (So, subdirs by name and then regfiles by name.)</li>
 </ul>
+
+
+
+
 <hr/>
 
 Demo, just-the-names, no recurse:
@@ -56,4 +62,44 @@ Demo:
 ![demo_LX_LXZ_LXT](https://github.com/user-attachments/assets/45e9038a-64ba-45b3-96cb-186b9bcd2fff)
 
 
-&nbsp;
+<hr/><hr/>
+<table>
+    <thead><tr>
+        <th>alias</th><th>sort by?</th><th>recurse?</th><th>show owner info?</th><th>show size?</th><th>mtime tstamp?</th><th>limits?</th>
+   </tr></thead>
+  <tbody>
+<tr><td><tt>l</tt></td><td>name</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td><tt>ll</tt></td><td>name</td><td>no</td><td>no</td><td>&mdash;</td><td>coarse</td><td>&mdash;</td></tr>
+    <!--            -->
+<tr><td><tt>lr</tt></td><td>name</td><td>yes</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td><tt>llr</tt></td><td>name</td><td>yes</td><td>no</td><td>&mdash;</td><td>coarse</td><td>&mdash;</td></tr>
+<!--            -->
+<tr><td><tt>llo</tt></td><td>name</td><td>no</td><td>yes</td><td>&mdash;</td><td>coarse</td><td>&mdash;</td></tr>
+<tr><td><tt>llro</tt></td><td>name</td><td>yes</td><td>yes</td><td>&mdash;</td><td>coarse</td><td>&mdash;</td></tr>
+    <!--            -->
+
+<tr><td><tt>lz</tt></td><td>size, biggest-last</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>lzo</tt></td><td>size, biggest-last</td><td>yes</td><td>yes</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
+    <!--            -->
+<tr><td><tt>lzh</tt></td><td>size, biggest-last</td><td>no</td><td>no</td><td>byte count</td><td>coarse</td><td>&mdash;</td></tr>
+<tr><td><tt>lzho</tt></td><td>size, biggest-last</td><td>no</td><td>yes</td><td>byte count</td><td>coarse</td><td>&mdash;</td></tr>
+    <!--            -->
+<tr><td><tt>lzr</tt></td><td>size, biggest-last within each dir</td><td>yes</td><td>no</td><td>unit-abbreviated</td><td>coarse</td><td>&mdash;</td></tr>
+<tr><td><tt>lzro</tt></td><td>size, biggest-last within each dir</td><td>yes</td><td>yes</td><td>unit-abbreviated</td><td>coarse</td><td>&mdash;</td></tr>
+    <!--            -->
+<tr><td><tt>lt</tt></td><td>mtime, newest-last</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>lto</tt></td><td>mtime, newest-last</td><td>no</td><td>yes</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
+    <!--            -->
+<tr><td><tt>ltr</tt></td><td>mtime, newest-last within each dir</td><td>yes</td><td>no</td><td>byte count</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>ltro</tt></td><td>mtime, newest-last within each dir</td><td>yes</td><td>yes</td><td>byte count</td><td>fine</td><td>&mdash;</td></tr>
+<!--            -->
+<tr><td><tt>lvz</tt></td><td>size, biggest-first</td><td>no</td><td>no</td><td>byte count</td><td>fine</td><td>first 5</td></tr>
+<tr><td><tt>lvt</tt></td><td>mtime, newest-first</td><td>no</td><td>no</td><td>byte count</td><td>fine</td><td>first 5</td></tr>>
+<tr><td><tt>lvzh</tt></td><td>size, biggest-first</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>coarse</td><td>first 5</td></tr>
+<tr><td><tt>lvth</tt></td><td>mtime, newest-first</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>coarse</td><td>first 5</td></tr>>
+<!--            -->
+<tr><td><tt>lx</tt></td><td>name</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>fit on single line; no more than 10</td></tr>
+<tr><td><tt>lxt</tt></td><td>mtime, newest-first</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>fit on single line; no more than 10</td></tr>
+<tr><td><tt>lxz</tt></td><td>size, biggest-first</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>fit on single line; no more than 10</td></tr>
+  </tbody>
+</table>

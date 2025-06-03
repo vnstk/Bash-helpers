@@ -1,10 +1,11 @@
-TODO, revise 
-
-kind: a function
+kind: startup script logic, aliases
 <hr/>
-Trims leading spaces as result from e.g. <tt>uniq -c</tt>.&nbsp;&nbsp;Use as
-<tt>
-find * -xdev \( \( -type d \( -name libs -o -name _deps \) -prune \) -o -type f \) -regex '.*\.hpp' -printf '%h\n' | sort | uniq -c | cram-columns 3
-</tt>
-<br/>
-The numeric argument is # of columns desired; this, and separatorWidth (hardcoded as 2) are scrupulously respected.&nbsp;&nbsp;Best possible use is made of available space.
+
+The actual commands used for scriptamatic manipulation of the copy-paste buffer depend on host:
+<ul>
+  <li>Linux: <tt>xsel</tt>; not installed by default.</li>
+  <li>MSYS2: <tt>putclip</tt> and <tt>putclip</tt>; not installed by default.</li>
+  <li>MacOS: <tt>pbcopy</tt> and <tt>pbpaste</tt>; comes with MacOS (don't even need Brew).</li>
+</ul>
+
+All <tt>Bash-copyPaste-buffer-manipulation.sh</tt> does is define 2 aliases, <tt>rd_pastebuf</tt> and <tt>pastebuf_wr</tt>; and set 1 readonly global variable, <tt>havePastebufManip=</tt>.  Several of my helpers use these.

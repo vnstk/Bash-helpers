@@ -30,7 +30,6 @@ Demo, names and details, recurse:
 
 
 <hr/><hr/>
-
 <h2>The <tt>lv</tt><i>*</i> series: <tt>lvt</tt>, <tt>lvz</tt>, <tt>lvth</tt>, <tt>lvzh</tt> </h2>
 Print only the first (after sorting applied) 5 entries, to not clutter up your console overmuch.
 <ul>
@@ -40,11 +39,11 @@ Print only the first (after sorting applied) 5 entries, to not clutter up your c
   <li><tt>lvzh</tt>&nbsp;&mdash;&nbsp;coarse tstamp; list the 5 biggest, biggest-first; also show owner info; unit-abbreviated size.</li>
 </ul>
 Demo:
+
 ![demo_LVseries](https://github.com/user-attachments/assets/5fc4db11-e768-4381-ac6d-1f869c8f82e6)
 
 
 <hr/><hr/>
-
 <h2>The <tt>lx</tt><i>*</i> series: <tt>lx</tt>, <tt>lxt</tt>, <tt>lxz</tt></h2>
 Print <i>just the names of</i> up to 10 first (after sorting applied) entries; make sure output fits onto a <i>single screen line</i>, to not clutter up your console at all.
 <ul>
@@ -53,6 +52,7 @@ Print <i>just the names of</i> up to 10 first (after sorting applied) entries; m
   <li><tt>lxz</tt>&nbsp;&mdash;&nbsp;sort by size (biggest first).</li>
 </ul>
 Demo:
+
 ![demo_LX_LXZ_LXT](https://github.com/user-attachments/assets/45e9038a-64ba-45b3-96cb-186b9bcd2fff)
 
 

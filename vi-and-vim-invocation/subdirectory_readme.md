@@ -21,4 +21,5 @@ To summarize, all of the following will work:
   <li><i>shortcutName</i> <tt>foo/bar/qux.h +399</tt></li>
   <li><i>shortcutName</i> <tt>foo/bar/qux.h +/assert</tt></li>
 </ul>
-; where <i>shortcutName</i> := <tt>vi</tt> | <tt>vir</tt> | <tt>virreally</tt> | <tt>vish</tt> | <tt>virsh</tt> | <tt>viu8</tt> | <tt>viru8</tt> | <tt>gvi</tt> | <tt>gvir</tt> | .....
+; where <i>shortcutName</i> := <tt>vi</tt> | <tt>vir</tt> | <tt>virreally</tt> | <tt>virfast</tt> |
+ <tt>vish</tt> | <tt>virsh</tt> | <tt>viu8</tt> | <tt>viru8</tt> | <tt>gvi</tt> | <tt>gvir</tt> | .....

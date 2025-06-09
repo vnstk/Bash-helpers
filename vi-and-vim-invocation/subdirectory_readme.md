@@ -9,3 +9,16 @@ Example:<br/>
 
 ![vir-demo-A](https://github.com/user-attachments/assets/b080ad73-aac1-4d83-b28b-0477280b9aeb)
 
+
+<hr/>
+To summarize, all of the following will work:
+<ul>
+  <li><i>shortcutName</i> <tt>foo/bar/qux.h</tt></li>
+  <li><i>shortcutName</i> <tt>foo/bar/qux.h:399</tt></li>
+  <li><i>shortcutName</i> <tt>foo/bar/qux.h:399:</tt></li>
+  <li><i>shortcutName</i> <tt>foo/bar/qux.h:399:79</tt></li>  
+  <li><i>shortcutName</i> <tt>foo/bar/qux.h:399:79:</tt></li>
+  <li><i>shortcutName</i> <tt>foo/bar/qux.h +399</tt></li>
+  <li><i>shortcutName</i> <tt>foo/bar/qux.h +/assert</tt></li>
+</ul>
+; where <i>shortcutName</i> := <tt>vi</tt> | <tt>vir</tt> | <tt>virreally</tt> | <tt>vish</tt> | <tt>virsh</tt> | <tt>viu8</tt> | <tt>viru8</tt> | <tt>gvi</tt> | <tt>gvir</tt> | .....

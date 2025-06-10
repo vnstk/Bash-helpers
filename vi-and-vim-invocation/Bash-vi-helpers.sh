@@ -25,7 +25,7 @@ vi_of_adjustedArgs () {
 }
 
 command -v 'vim' >/dev/null && {               #### If have vim, use it.
-	$amOnApple || {
+	[[ $MACHTYPE =~ apple ]] || {
 		# With MacOS, if VIMINIT is defined, MacVim will not read ~/.vimrc; strange but true.
 		export VIMINIT=':map qpq <Esc>:q!<CR> | set ts=4 | syntax on | set wrap | set restorescreen | map <F5> :set hls!<bar>set hls?<CR> | map <F4> :set hls!<bar>set hls?<CR> | imap <S-Tab> <Space><Space><Space><Space> | set ic | set smartcase | highlight comment ctermfg=lightblue'
 	}

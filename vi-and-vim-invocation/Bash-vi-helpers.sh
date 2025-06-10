@@ -15,13 +15,13 @@ vi_of_adjustedArgs () {
 	local -r firstArg=$1
 	shift
 	# vi doesn't know about "call cursor(N,M)", but it does know about "+N".
-    if [[ $editorExe != 'vi' && $firstArg =~ ^([^:]+):([0-9]+):([0-9]+) ]]; then
-        command $editorExe  ${BASH_REMATCH[1]}  -c  "call cursor(${BASH_REMATCH[2]},${BASH_REMATCH[3]})"  $@
-    elif [[ $firstArg =~ ^([^:]+):([0-9]+) ]]; then
-        command $editorExe  ${BASH_REMATCH[1]}  +${BASH_REMATCH[2]}  $@
-    else
-        command $editorExe  ${firstArg%:}  $@
-    fi
+	if [[ $editorExe != 'vi' && $firstArg =~ ^([^:]+):([0-9]+):([0-9]+) ]]; then
+		command $editorExe  ${BASH_REMATCH[1]}  -c  "call cursor(${BASH_REMATCH[2]},${BASH_REMATCH[3]})"  $@
+	elif [[ $firstArg =~ ^([^:]+):([0-9]+) ]]; then
+		command $editorExe  ${BASH_REMATCH[1]}  +${BASH_REMATCH[2]}  $@
+	else
+		command $editorExe  ${firstArg%:}  $@
+	fi
 }
 
 command -v 'vim' >/dev/null && {               #### If have vim, use it.

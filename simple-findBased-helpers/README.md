@@ -17,7 +17,7 @@ buffer &mDash; see the <tt>copyPaste-buffer-manipulation</tt> script.</li>
     </li>
 
 <li><tt>thither </tt> <i>regfileName</i>: passes its arg to <tt>thither</tt>; if the sought file was found in exactly 1 path, our PWD has been changed to that path's dirname courtesy of <tt>thither</tt>, and now all <tt>vere</tt> has to do is invoke <tt>vir</tt> <i>regfileName</i>.
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;("vere" is short for "<u>v</u>v of wh<u>ere</u>", a little pun.)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;("VERE" is short for "Vi of whERE", a little pun.)
       </li>
 </lu>
 <hr/>

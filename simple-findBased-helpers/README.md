@@ -6,7 +6,7 @@ Several simple functions building on top each other:
 <lu>
 
 <li><tt>where </tt> <i>regfileName</i>: prints the found paths of the specified file, and copies them to the paste 
-buffer &mDash; see the <tt>copyPaste-buffer-manipulation</tt> script.</li>
+buffer  &mdash; see the <tt>copyPaste-buffer-manipulation</tt> folder in this repo.</li>
 
 <li><tt>whered </tt> <i>dirName</i>: like <tt>where</tt>, but looks for subdirectories instead.</li>
 
@@ -16,7 +16,7 @@ buffer &mDash; see the <tt>copyPaste-buffer-manipulation</tt> script.</li>
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;... if <tt>where</tt> found exactly more than 1 path, <tt>thither</tt> prints <b><tt>Ambiguous</tt></b> in red.&nbsp;&nbsp;All the found paths are now in your copy-paste buffer, of course.
     </li>
 
-<li><tt>vere </tt> <i>regfileName</i>: passes its arg to <tt>thither</tt>; if the sought file was found in exactly 1 path, our PWD has been changed to that path's dirname courtesy of <tt>thither</tt>, and now all <tt>vere</tt> has to do is invoke <tt>vir</tt> <i>regfileName</i>.
+<li><tt>vere </tt> <i>regfileName</i>: passes its arg to <tt>thither</tt>; if the sought file was found in exactly 1 path, our PWD has been changed to that path's dirname courtesy of <tt>thither</tt>, and now all <tt>vere</tt> has to do is invoke <tt>vir</tt> <i>regfileName</i>  &mdash; see the <tt>vi-and-vim-invocation</tt> folder in this repo.<br/>
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;("VERE" is short for "Vi of whERE", a little pun.)
       </li>
 </lu>

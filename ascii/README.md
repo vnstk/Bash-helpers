@@ -23,5 +23,8 @@ Demo, <tt>ascii w</tt>:
 <hr/>
 Demo, the extra text printed by<tt>ascii f</tt>:
 
-![ascii--fun-facts](https://github.com/user-attachments/assets/92fc2e23-6ff1-4fec-9504-cab32fc30382)
+![ascii--fun-facts_REV](https://github.com/user-attachments/assets/dc5e46f2-0d0f-4fc9-9ab1-cd35437b8ae1)
+
+
+
 

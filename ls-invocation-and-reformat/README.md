@@ -1,7 +1,3 @@
-kind: functions, aliases
-<hr/>
-
-
 <h2>All:</h2>
 <ul>
   <li>Ensure <tt>ls</tt> colorizes it output; if output isn't going to a terminal, then have <tt>ls</tt> at least append a distinguishing character to names (e.g. <tt>/</tt> after dir names)</li>

@@ -53,8 +53,7 @@ ascii() {
 	f.	Some alternative control code names: 10 is also EOL or NEL, 26 also SUB, 17 also XON, 19 also XOFF.
 	g.	Less well known control code names:
 		SOH        start of header; start of heading
-		STX        start of text
-		ETX        end of text
+		[SE]TX     {start,end} of text
 		EOT        end of xmission; signal EOF to UNIX terminal driver
 		S[OI]      shift {out,in}
 		DLE        data link escape

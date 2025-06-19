@@ -1,7 +1,3 @@
-kind: functions
-
-<hr/>
-
 Several simple functions building on top each other:
 <lu>
 

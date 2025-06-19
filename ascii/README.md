@@ -8,6 +8,8 @@ Often wish for an ASCII code reminder; <a href="https://www.man7.org/linux/man-p
   <li><tt>ascii f</tt> appends several fun facts.</li>
 </ul>
 
+For each character, its codeis printed in decimal and then in hex (latter, inverse-video).
+
 <hr/>
 Demo, <tt>ascii</tt>:
 

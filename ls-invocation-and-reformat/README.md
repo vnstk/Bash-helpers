@@ -80,28 +80,30 @@ Demo:
 <tr><td><tt>llro</tt></td><td>name</td><td>yes</td><td>yes</td><td>&mdash;</td><td>coarse</td><td>&mdash;</td></tr>
     <!--            -->
 
-<tr><td><tt>lz</tt></td><td>size, biggest-last</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
-<tr><td><tt>lzo</tt></td><td>size, biggest-last</td><td>yes</td><td>yes</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>lz</tt></td><td>size, biggest-last</td><td>no</td><td>no</td><td>unit-abbr.</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>lzo</tt></td><td>size, biggest-last</td><td>no</td><td>yes</td><td>unit-abbr.</td><td>fine</td><td>&mdash;</td></tr>
     <!--            -->
 <tr><td><tt>lzh</tt></td><td>size, biggest-last</td><td>no</td><td>no</td><td>byte count</td><td>coarse</td><td>&mdash;</td></tr>
 <tr><td><tt>lzho</tt></td><td>size, biggest-last</td><td>no</td><td>yes</td><td>byte count</td><td>coarse</td><td>&mdash;</td></tr>
     <!--            -->
-<tr><td><tt>lzr</tt></td><td>size, biggest-last within each dir</td><td>yes</td><td>no</td><td>unit-abbreviated</td><td>coarse</td><td>&mdash;</td></tr>
-<tr><td><tt>lzro</tt></td><td>size, biggest-last within each dir</td><td>yes</td><td>yes</td><td>unit-abbreviated</td><td>coarse</td><td>&mdash;</td></tr>
+<tr><td><tt>lzr</tt></td><td>size, biggest-last</td><td>yes</td><td>no</td><td>unit-abbr.</td><td>coarse</td><td>&mdash;</td></tr>
+<tr><td><tt>lzro</tt></td><td>size, biggest-last</td><td>yes</td><td>yes</td><td>unit-abbr.</td><td>coarse</td><td>&mdash;</td></tr>
     <!--            -->
-<tr><td><tt>lt</tt></td><td>mtime, newest-last</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
-<tr><td><tt>lto</tt></td><td>mtime, newest-last</td><td>no</td><td>yes</td><td>unit-abbreviated</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>lt</tt></td><td>mtime, newest-last</td><td>no</td><td>no</td><td>unit-abbr.</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>lto</tt></td><td>mtime, newest-last</td><td>no</td><td>yes</td><td>unit-abbr.</td><td>fine</td><td>&mdash;</td></tr>
     <!--            -->
-<tr><td><tt>ltr</tt></td><td>mtime, newest-last within each dir</td><td>yes</td><td>no</td><td>byte count</td><td>fine</td><td>&mdash;</td></tr>
-<tr><td><tt>ltro</tt></td><td>mtime, newest-last within each dir</td><td>yes</td><td>yes</td><td>byte count</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>ltr</tt></td><td>mtime, newest-last</td><td>yes</td><td>no</td><td>byte count</td><td>fine</td><td>&mdash;</td></tr>
+<tr><td><tt>ltro</tt></td><td>mtime, newest-last</td><td>yes</td><td>yes</td><td>byte count</td><td>fine</td><td>&mdash;</td></tr>
 <!--            -->
 <tr><td><tt>lvz</tt></td><td>size, biggest-first</td><td>no</td><td>no</td><td>byte count</td><td>fine</td><td>first 5</td></tr>
 <tr><td><tt>lvt</tt></td><td>mtime, newest-first</td><td>no</td><td>no</td><td>byte count</td><td>fine</td><td>first 5</td></tr>>
-<tr><td><tt>lvzh</tt></td><td>size, biggest-first</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>coarse</td><td>first 5</td></tr>
-<tr><td><tt>lvth</tt></td><td>mtime, newest-first</td><td>no</td><td>no</td><td>unit-abbreviated</td><td>coarse</td><td>first 5</td></tr>>
+<tr><td><tt>lvzh</tt></td><td>size, biggest-first</td><td>no</td><td>no</td><td>unit-abbr.</td><td>coarse</td><td>first 5</td></tr>
+<tr><td><tt>lvth</tt></td><td>mtime, newest-first</td><td>no</td><td>no</td><td>unit-abbr.</td><td>coarse</td><td>first 5</td></tr>>
 <!--            -->
 <tr><td><tt>lx</tt></td><td>name</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>fit on single line; no more than 10</td></tr>
 <tr><td><tt>lxt</tt></td><td>mtime, newest-first</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>fit on single line; no more than 10</td></tr>
 <tr><td><tt>lxz</tt></td><td>size, biggest-first</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>fit on single line; no more than 10</td></tr>
   </tbody>
 </table>
+
+Sort-by qualifiers like "biggest-last" and "newest-last" are meant <i>within each dir</i> <b>if</b> recurse=yes.

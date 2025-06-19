@@ -1,6 +1,3 @@
-kind: function
-<hr/>
-
 Often wish for an ASCII code reminder; <a href="https://www.man7.org/linux/man-pages/man7/ascii.7.html"><tt>ascii(7)</tt></a> is nice when installed, but is installed seldom.&nbsp;&nbsp;The present <tt>ascii</tt> function fills the gap:
 <ul>
   <li><tt>ascii</tt> prints in the conventional 4 columns.</li>

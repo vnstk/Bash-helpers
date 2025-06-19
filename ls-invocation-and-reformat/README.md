@@ -62,11 +62,13 @@ Demo:
 ![demo_LX_LXZ_LXT](https://github.com/user-attachments/assets/45e9038a-64ba-45b3-96cb-186b9bcd2fff)
 
 
-<hr/><hr/>
+<hr/>
+<hr/>
+
 <table>
-    <thead><tr>
+    <thead>
         <th>alias</th><th>sort by?</th><th>recurse?</th><th>show owner info?</th><th>show size?</th><th>mtime tstamp?</th><th>limits?</th>
-   </tr></thead>
+   </thead>
   <tbody>
 <tr><td><tt>l</tt></td><td>name</td><td>no</td><td>no</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
 <tr><td><tt>ll</tt></td><td>name</td><td>no</td><td>no</td><td>&mdash;</td><td>coarse</td><td>&mdash;</td></tr>
